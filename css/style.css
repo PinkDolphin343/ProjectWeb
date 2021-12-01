@@ -217,6 +217,8 @@ h3 {
     }
 }
 .campo input[type="text"],
+.campo input[type="date"],
+.campo select,
 .campo input[type="tel"],
 .campo input[type="mail"],
 .campo input[type="number"]
@@ -229,7 +231,9 @@ h3 {
 @media (min-width: 768px) {
     :is(.campo) :is( 
         input[type="text"], 
-        input[type="text"],  
+        input[type="text"],
+        select,
+        input[type="date"],  
         input[type="tel"],  
         input[type="mail"] , 
         textarea ) {
@@ -240,9 +244,7 @@ h3 {
 .w-100{
     flex: 0 0 100%;
 }
-.campo textarea {
-    height: 4rem;
-}
+
 
 .enviar {
     display: flex;
@@ -251,4 +253,15 @@ h3 {
 
 .footer {
     text-align: center;
+}
+.final{
+    display: flex;
+   
+    justify-content: center;
+
+}
+@media (min-width: 768px) {
+     .final{
+         justify-content: flex-end;
+     }
 }
