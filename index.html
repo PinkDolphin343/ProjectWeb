@@ -14,7 +14,7 @@
     
     
     <link href="css/style.css" rel="stylesheet">
-    
+    <script src="js/formulario.js"></script>
 </head>
 <body>
 
@@ -53,7 +53,7 @@
 
         <div id="contacto" class="contacto">
             <h2>Contacto</h2>
-            <form class="formulario" action="#" method="POST">
+            <form class="formulario" action="#" method="POST" id="formulario" onsubmit="return validar();">
                 <fieldset>
 
                 
@@ -68,17 +68,17 @@
                     <div class="campo">
                         <label>Nombre</label>
 
-                        <input type="text" name="Nombre" placeholder="Nombre" required>
+                        <input type="text" name="nombre" placeholder="Nombre" required>
                     </div>
                     <div class="campo">
                         <label>Apellido paterno</label>
 
-                        <input type="text" name="Apellido paterno" placeholder="Apellido paterno" required>
+                        <input type="text" name="apellidop" placeholder="Apellido paterno" required>
                     </div>
                     <div class="campo">
                         <label>Apellido materno</label>
 
-                        <input type="text" name="Apellido materno" placeholder="Apellido paterno" required>
+                        <input type="text" name="apellidom" placeholder="Apellido paterno" required>
                     </div>
                     <div class="campo">
                         <label>Fecha de nacimiento</label>
