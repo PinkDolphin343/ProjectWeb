@@ -5,16 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>TecWeb</title>
-    <link rel="preload" href="css/normalize.css">
+    <link rel="preload" href="css/normalize.css" as="style">
     <link rel="stylesheet" href="css/normalize.css">
-    <link rel="preload" href="css/style.css">
+    <link rel="preload" href="css/style.css" as='style'>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
-    
-    
     <link href="css/style.css" rel="stylesheet">
-    <script src="js/formulario.js"></script>
+    <link href="css/normalize.css" rel="stylesheet">
+
 </head>
 <body>
 
@@ -53,7 +52,7 @@
 
         <div id="contacto" class="contacto">
             <h2>Contacto</h2>
-            <form class="formulario" action="#" method="POST" id="formulario" onsubmit="return validar();">
+            <form class="formulario" action="#" method="POST">
                 <fieldset>
 
                 
@@ -63,22 +62,22 @@
                     <div class="campo">
                         <label>No. de boleta</label>
 
-                        <input type="text" name="boleta" placeholder="Numero de boleta" required>
+                        <input type="text" name="boleta" placeholder="Numero de boleta" required id="boleta">
                     </div>
                     <div class="campo">
                         <label>Nombre</label>
 
-                        <input type="text" name="nombre" placeholder="Nombre" required>
+                        <input type="text" name="nombre" placeholder="Nombre" required id="nombre">
                     </div>
                     <div class="campo">
                         <label>Apellido paterno</label>
 
-                        <input type="text" name="apellidop" placeholder="Apellido paterno" required>
+                        <input type="text" name="apellidop" placeholder="Apellido paterno" required  id="apellidop">
                     </div>
                     <div class="campo">
                         <label>Apellido materno</label>
 
-                        <input type="text" name="apellidom" placeholder="Apellido paterno" required>
+                        <input type="text" name="apellidom" placeholder="Apellido paterno" required id="apellidom">
                     </div>
                     <div class="campo">
                         <label>Fecha de nacimiento</label>
@@ -89,7 +88,7 @@
                     <div class="campo w-100">
                         <label>CURP</label>
 
-                        <input type="text" name="CURP" placeholder="CURP">
+                        <input type="text" name="CURP" placeholder="CURP" id="curp">
                     </div>
                     
                 </div><!--.contenedor-campos-->
@@ -139,17 +138,17 @@
                     <div class="campo">
                         <label>Codigo Postal</label>
 
-                        <input type="tel" name="CP" placeholder="CP" required>
+                        <input type="tel" name="CP" placeholder="CP" required id="cp">
                     </div>
                     <div class="campo">
                         <label>Telefono</label>
 
-                        <input type="tel" name="tel" placeholder="Telefono" required>
+                        <input type="tel" name="tel" placeholder="Telefono" required id="tel">
                     </div>
                     <div class="campo w-100">
                         <label>Email</label>
 
-                        <input type="mail" name="mail" placeholder="Email" required>
+                        <input type="mail" name="mail" placeholder="Email" required id="email">
                     </div>
 
 
@@ -295,7 +294,7 @@
         <p>Todos los derechos reservados.Equipo 9 Tecnologias para la web 2CM12</p>
     </footer>
 
-
+   <script src="js/validar.js"></script>
    
 </body>
 </html>
