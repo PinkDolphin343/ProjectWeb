@@ -1,6 +1,6 @@
 const btnEnviar = document.querySelector('.formulario input[type=submit]');
 console.log(btnEnviar);
-btnEnviar.addEventListener('click', function(evento) {
+btnEnviar.addEventListener('submit', function(evento) {
 console.log(evento);
 evento.preventDefault();
 })
@@ -13,7 +13,7 @@ evento.preventDefault();
     // submit
     const formulario = document.querySelector('.formulario');
     
-    formulario.addEventListener('submit', function(e) {
+    formulario.addEventListener('submit',e=> {
         e.preventDefault();
     
         console.log(e);
@@ -40,17 +40,7 @@ evento.preventDefault();
     
     
     
-    function mostrarMensaje(mensaje) {
-        const alerta = document.createElement('p');
-        alerta.textContent = mensaje;
-        alerta.classList.add('correcto');
-        formulario.appendChild(alerta);
-    
-        setTimeout(() => {
-            alerta.remove();
-        }, 3000);
-    }
-    
+
     
     // Eventos de los Inputs...
     const nombre = document.querySelector('#nombre');
