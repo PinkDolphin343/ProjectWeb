@@ -7,7 +7,8 @@ evento.preventDefault();
     
     const datos = {
         nombre: '',
-        email: ''
+        email: '',
+        curp: ''
     }
     
     // submit
@@ -26,7 +27,7 @@ evento.preventDefault();
     
         const { nombre, email } = datos;
     
-        if(nombre === '' || email === ''  ) {
+        if(nombre === '' || email === '' || crup === '' ) {
             console.log('Al menos un campo esta vacio');
             mostrarError('Todos los campos son obligatorios');
             return; // Detiene la ejecución de esta función
@@ -45,10 +46,13 @@ evento.preventDefault();
     // Eventos de los Inputs...
     const nombre = document.querySelector('#nombre');
     const email = document.querySelector('#email');
-    
+    const curp = document.querySelector('#curp');
+
+
     
     nombre.addEventListener('input', leerTexto);
     email.addEventListener('input', leerTexto);
+    curp.addEventListener('input', leerTexto);
     
     
     function leerTexto(e) {
