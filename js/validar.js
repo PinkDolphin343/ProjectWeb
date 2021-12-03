@@ -3,6 +3,7 @@ console.log(btnEnviar);
 btnEnviar.addEventListener('submit', function(evento) {
 console.log(evento);
 evento.preventDefault();
+console.log("Enviando Formulario");
 })
     
     const datos = {
@@ -85,9 +86,25 @@ evento.preventDefault();
     const nomesc = document.querySelector('#nomesc');
     const prom = document.querySelector('#prom');
     
-    
+    boleta.addEventListener('input',leerTexto);
     nombre.addEventListener('input', leerTexto);
+    AP.addEventListener('input',leerTexto);
+    AM.addEventListener('input',leerTexto);
+    fechanac.addEventListener('input',leerTexto);
+    curp.addEventListener('input',leerTexto);
+
+    calle.addEventListener('input',leerTexto);
+    numcalle.addEventListener('input',leerTexto);
+    colonia.addEventListener('input',leerTexto);
+    alcaldia.addEventListener('input',leerTexto);
+    cp.addEventListener('input',leerTexto);
+    tel.addEventListener('input',leerTexto);
     email.addEventListener('input', leerTexto);
+
+    esc.addEventListener('input',leerTexto);
+    estadoR.addEventListener('input',leerTexto);
+    nomesc.addEventListener('input',leerTexto);
+    prom.addEventListener('input',leerTexto);
     
     
     function leerTexto(e) {
