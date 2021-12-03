@@ -1,17 +1,19 @@
 
 function validar (){
 
-    var n1,boletan, tele, correo, expresion,boletaxs;
+    var n1,boletan,app,amm,curp, tele, correo, expresion,boletaxs,curpsx;
    //identidad
    n1 = document.getElementById("nombre").value;
    boletan = document.getElementById("boleta").value;
+   app = document.getElementById("apellidop");
+   amm = document.getElementById("apellidom");
+   curp= document.getElementById("curp");
     //contacto
     tele = document.getElementById("tel").value;
-    
     correo = document.getElementById("email").value;
     expresion = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/;
     boletaxs = /^[PP-PE-pp-pe0-9]+\d{8}$/;
-
+    curpsx= /^[A-Z]{4}+\d{6}+[a-zA-Z0-9]{6}+[a-zA-Z0-9.+-]{2}+$/;
 //identidad
     if (n1.length<=1){
         alert("el nombre es muy corto");
@@ -26,9 +28,10 @@ function validar (){
         alert("la boleta no es valido");
         return false;
     }
-
-    
-    
+   else if (!curpsx.test(curp))
+   {
+       alert("Tu CURP no tiene formato");
+   }
     
     else if(tele.length>14){
         alert("El telefono es muy largo o no existe");
