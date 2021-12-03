@@ -43,7 +43,7 @@ console.log("Enviando Formulario");
     
         // Validar el Formulario...
     
-        const { boleta ,nombre, apellidop, apellidom, fechanac,curp,Calle,nunmcalle,colonia,alcaldia,cp,tel,email,esc,estadoR,nomesc,prom} = datos;
+        const { boleta ,nombre, apellidop, apellidom, fechanac,curp,Calle,nunmcalle,col,alcaldia,cp,tel,email,esc,estadoR,nomesc,prom} = datos;
     
         if(boleta === '' || nombre === '' || apellidop==='' || apellidom==='' || fechanac==='' || curp==='' || Calle==='' || nunmcalle || col==='' || alcaldia==='' || cp==='' || tel==='' || email==='' || esc==='' || estadoR==='' || nomesc==='' || prom==='' ) {
             console.log('Al menos un campo esta vacio');
