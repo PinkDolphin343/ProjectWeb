@@ -1,13 +1,61 @@
+
 function validar (){
-    var n1;
-    n1 = document.getElementById("nombre").value;
-    if (n1.length>6){
+
+    var n1,boletan, tele, correo, expresion,boletaxs;
+   //identidad
+   n1 = document.getElementById("nombre").value;
+   boletan = document.getElementById("boleta").value;
+    //contacto
+    tele = document.getElementById("tel").value;
+    
+    correo = document.getElementById("email").value;
+    expresion = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/;
+    boletaxs = /^[PP-PE-pp-pe0-9]+\d{8}$/;
+
+//identidad
+    if (n1.length<=1){
         alert("el nombre es muy corto");
+        return false;
+    
+    }
+    else if(boletan.length>11){
+        alert("El boleta es muy largo o no existe");
+        return false;
+    } 
+    else if (!boletaxs.test(boletan)){
+        alert("la boleta no es valido");
         return false;
     }
 
+    
+    
+    
+    else if(tele.length>14){
+        alert("El telefono es muy largo o no existe");
+        return false;
+    } 
+    else if (isNaN(tele)){
+        alert("El telefono ingresado no es un numero");
+        return false;
+    }
+    else if(correo.length>50){
+        alert("Correo muy largo");
+        return false;
+
+    }
+    else if (!expresion.test(correo)){
+        alert("el correo no es valido");
+        return false;
+    }
+    
+
 
 }
+
+
+
+
+
 
 const btnEnviar = document.querySelector('.formulario input[type=submit]');
 console.log(btnEnviar);
