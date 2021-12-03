@@ -14,12 +14,17 @@ evento.preventDefault();
         curp: '',
 
         calle:'',
-        nunmcalle:'',
+        numcalle:'',
         colonia:'',
         alcaldia:'',
         cp:'',
         tel: '',
         email: '',
+
+        esc: '',
+        estadoR: '',
+        nomesc:'',
+        prom:'',
 
     }
     
@@ -37,9 +42,9 @@ evento.preventDefault();
     
         // Validar el Formulario...
     
-        const { nombre, email } = datos;
+        const { boleta ,nombre, AP, AM, fechanac,curp,calle,nunmcalle,colonia,alcaldia,cp,tel,email,esc,estadoR,nomesc,prom} = datos;
     
-        if(nombre === '' || email === ''  ) {
+        if(boleta === '' || nombre === '' || AP==='' || AM==='' || fechanac==='' || curp==='' || calle==='' || nunmcalle || colonia==='' || alcaldia==='' || cp==='' || tel==='' || email==='' || esc==='' || estadoR==='' || nomesc==='' || prom===''  ) {
             console.log('Al menos un campo esta vacio');
             mostrarError('Todos los campos son obligatorios');
             return; // Detiene la ejecución de esta función
@@ -67,12 +72,18 @@ evento.preventDefault();
 
     //Contacto//
     const calle = document.querySelector('#Calle');
-    const nunmcalle = document.querySelector('#numcalle');
+    const numcalle = document.querySelector('#numcalle');
     const colonia = document.querySelector('#Col');
     const alcaldia = document.querySelector("alcaldia");
     const cp = document.querySelector('#cp');
     const tel = document.querySelector('#tel');
     const email = document.querySelector('#email');
+
+    //Procedencia//
+    const esc = document.querySelector('#esc');
+    const estadoR = document.querySelector('#estadoR');
+    const nomesc = document.querySelector('#nomesc');
+    const prom = document.querySelector('#prom');
     
     
     nombre.addEventListener('input', leerTexto);
