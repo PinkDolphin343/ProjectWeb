@@ -9,14 +9,14 @@ console.log("Enviando Formulario");
     const datos = {
         boleta: '',
         nombre: '',
-        AP: '',
-        AM: '',
+        apellidop: '',
+        apellidom: '',
         fechanac:'',
         curp: '',
 
-        calle:'',
+        Calle:'',
         numcalle:'',
-        colonia:'',
+        col:'',
         alcaldia:'',
         cp:'',
         tel: '',
@@ -43,22 +43,41 @@ console.log("Enviando Formulario");
     
         // Validar el Formulario...
     
-        const { boleta ,nombre, AP, AM, fechanac,curp,calle,nunmcalle,colonia,alcaldia,cp,tel,email,esc,estadoR,nomesc,prom} = datos;
+        const { boleta ,nombre, apellidop, apellidom, fechanac,curp,Calle,nunmcalle,colonia,alcaldia,cp,tel,email,esc,estadoR,nomesc,prom} = datos;
     
-        if(boleta === '' || nombre === '' || AP==='' || AM==='' || fechanac==='' || curp==='' || calle==='' || nunmcalle || colonia==='' || alcaldia==='' || cp==='' || tel==='' || email==='' || esc==='' || estadoR==='' || nomesc==='' || prom===''  ) {
+        if(boleta === '' || nombre === '' || apellidop==='' || apellidom==='' || fechanac==='' || curp==='' || Calle==='' || nunmcalle || col==='' || alcaldia==='' || cp==='' || tel==='' || email==='' || esc==='' || estadoR==='' || nomesc==='' || prom==='' ) {
             console.log('Al menos un campo esta vacio');
             mostrarError('Todos los campos son obligatorios');
             return; // Detiene la ejecución de esta función
         }
-    
         console.log('Todo bien...')
     
         mostrarMensaje('Mensaje enviado correctamente');
     });
+    // FUNCIONES /////////////////////////////////////
+    function mostrarError(mensaje) {
+        const alerta = document.createElement('p');
+        alerta.textContent = mensaje;
+        alerta.classList.add('error');
+
+        formulario.appendChild(alerta);
+
+        setTimeout(() => {
+            alerta.remove();
+        }, 3000);
+    }
     
+    function mostrarMensaje(mensaje) {
+        const alerta = document.createElement('p');
+        alerta.textContent = mensaje;
+        alerta.classList.add('correcto');
+        formulario.appendChild(alerta);
     
-    
-    
+        setTimeout(() => {
+            alerta.remove();
+        }, 3000);
+    }
+    ///////////////////////////////////////
 
     
     // Eventos de los Inputs...
@@ -66,16 +85,16 @@ console.log("Enviando Formulario");
     //Identidad//
     const boleta = document.querySelector('#boleta');
     const nombre = document.querySelector('#nombre');
-    const AP = document.querySelector('#apellidop');
-    const AM = document.querySelector('#apellidom');
+    const apellidop = document.querySelector('#apellidop');
+    const apellidom= document.querySelector('#apellidom');
     const fechanac = document.querySelector('#fechanac');
     const curp =document.querySelector('#curp');
 
     //Contacto//
-    const calle = document.querySelector('#Calle');
+    const Calle = document.querySelector('#Calle');
     const numcalle = document.querySelector('#numcalle');
-    const colonia = document.querySelector('#Col');
-    const alcaldia = document.querySelector("alcaldia");
+    const col = document.querySelector('#col');
+    const alcaldia = document.querySelector("#alcaldia");
     const cp = document.querySelector('#cp');
     const tel = document.querySelector('#tel');
     const email = document.querySelector('#email');
@@ -88,14 +107,14 @@ console.log("Enviando Formulario");
     
     boleta.addEventListener('input',leerTexto);
     nombre.addEventListener('input', leerTexto);
-    AP.addEventListener('input',leerTexto);
-    AM.addEventListener('input',leerTexto);
+    apellidop.addEventListener('input',leerTexto);
+    apellidom.addEventListener('input',leerTexto);
     fechanac.addEventListener('input',leerTexto);
     curp.addEventListener('input',leerTexto);
 
-    calle.addEventListener('input',leerTexto);
+    Calle.addEventListener('input',leerTexto);
     numcalle.addEventListener('input',leerTexto);
-    colonia.addEventListener('input',leerTexto);
+    col.addEventListener('input',leerTexto);
     alcaldia.addEventListener('input',leerTexto);
     cp.addEventListener('input',leerTexto);
     tel.addEventListener('input',leerTexto);
