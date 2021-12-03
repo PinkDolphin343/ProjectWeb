@@ -1,3 +1,14 @@
+function validar (){
+    var n1;
+    n1 = document.getElementById("nombre").value;
+    if (n1.length>6){
+        alert("el nombre es muy corto");
+        return false;
+    }
+
+
+}
+
 const btnEnviar = document.querySelector('.formulario input[type=submit]');
 console.log(btnEnviar);
 btnEnviar.addEventListener('submit', function(evento) {
@@ -5,6 +16,11 @@ console.log(evento);
 evento.preventDefault();
 console.log("Enviando Formulario");
 })
+
+const expresiones = {
+    nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
+}
+
     
     const datos = {
         boleta: '',
@@ -50,10 +66,19 @@ console.log("Enviando Formulario");
             mostrarError('Todos los campos son obligatorios');
             return; // Detiene la ejecución de esta función
         }
-        console.log('Todo bien...')
+        console.log('Todo bien...');
+        
+        
     
         mostrarMensaje('Mensaje enviado correctamente');
     });
+
+
+
+
+
+
+
     // FUNCIONES /////////////////////////////////////
     function mostrarError(mensaje) {
         const alerta = document.createElement('p');
