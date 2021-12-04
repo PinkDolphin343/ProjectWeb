@@ -1,7 +1,7 @@
 
 function validar (){
 
-    var n1,boletan,app,amm,curp, tele, correo, expresion,boletaxs,curpsx;
+    var n1,boletan,app,amm,curp, tele, correo, expresion,boletaxs,curpsx, cpn,coln,callen,callenum,letra,esc;
    //identidad
    n1 = document.getElementById("nombre").value;
    boletan = document.getElementById("boleta").value;
@@ -14,6 +14,17 @@ function validar (){
     expresion = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/;
     boletaxs = /^[PP-PE-pp-pe0-9]+\d{8}$/;
     curpsx= /^[A-Z]{4}\d{6}(H|M)[A-Z]{2}[A-Z0-9]{5}$/;
+    cpn = document.getElementById("cp").value;
+    coln = document.getElementById("col").value;
+    callen = document.getElementById("Calle").value;
+    callenum = document.getElementById("numcalle").value;
+    letra =  /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
+    //Procedencia
+    esc = document.getElementById("nomesc").value;
+
+
+
+
 //identidad
     if (n1.length<=1){
         alert("el nombre es muy corto");
@@ -63,9 +74,47 @@ function validar (){
         alert("el correo no es valido");
         return false;
     }
+    else if(cpn.length>5){
+        alert("El CP es muy largo o no existe");
+        return false;
+    } 
+    
+    else if (isNaN(cpn)){
+        alert("El telefono ingresado no es un numero");
+        return false;
+    }
+    else if(callen.length>70){
+        alert("La calle es muy largo o no existe");
+        return false;
+    } 
+    else if(coln.length>60){
+        alert("La colonia es muy largo o no existe");
+        return false;
+    } 
+    else if (isNaN(callenum)){
+        alert("El numero de calle ingresado no es un numero");
+        return false;
+    }
+    else if (!letra.test(callen)){
+        alert("La calle no es  valida");
+        return false;
+    }
+    else if (!letra.test(coln)){
+        alert("La colonia no es valido");
+        return false;
+    }
+
+
 
     //Procedencia//
-    
+    else if (!letra.test(esc)){
+        alert("La escuela no es valido");
+        return false;
+    } 
+    else if(esc.length>80){
+        alert("La escuela es muy largo o no existe");
+        return false;
+    } 
     
 
 
