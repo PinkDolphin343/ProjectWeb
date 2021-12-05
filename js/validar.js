@@ -16,11 +16,15 @@ function validar (){
     curpsx= /^[A-Z]{4}\d{6}(H|M)[A-Z]{2}[A-Z0-9]{5}$/;
     cpn = document.getElementById("cp").value;
     coln = document.getElementById("col").value;
+    
     callen = document.getElementById("Calle").value;
     callenum = document.getElementById("numcalle").value;
     letra =  /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
     //Procedencia
     esc = document.getElementById("nomesc").value;
+    //login
+    //usuario = document.getElementById("user").value;
+   //password = document.getElementById("pass").value;
 
 
 
@@ -115,6 +119,7 @@ function validar (){
         alert("La escuela es muy largo o no existe");
         return false;
     } 
+    //login
     
 
 
