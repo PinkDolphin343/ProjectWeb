@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TecWeb</title>
+    <link rel="preload" href="css/normalize.css" as="style">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="preload" href="css/style.css" as='style'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/normalize.css" rel="stylesheet">
+    <script src="jquery-3.6.0.min.js"></script>
+</head>
+<body >
+   
+
+ <main>
+
+
+    <header class="header">
+        <h1>Tecnologias para la web <span>2CM12</span></h1>
+    </header>
+
+    <div class=" nav-bg">
+        <nav class="navegacion contenedor">
+            <a href="index.html">Inicio</a>
+            <a href="#">Nosotros</a>
+            <a href="#">Ayuda</a>
+            <a href="login.html">Login</a>
+        </nav>
+    </div>
+    
+
+   
+    <div class="contenedor sombra login">
+        
+
+        <div id="contacto" class="contacto">
+            <h2 class="ss">INICIA SESION</h2>
+            <form class="formulario" id="frmajax" action="#" method="POST">
+                
+            <fieldset>
+                
+                    <div class="campo w-80">
+                        
+
+                        <input type="text" name="usuario" placeholder="Ingrese su usuario" required id="user">
+                    </div>
+                    <div class="campo w-80">
+                        
+
+                        <input type="text" name="pass" placeholder="Contraseña" required id="pass">
+                    </div>
+
+            </fieldset>
+             
+            
+             <div class="final">
+
+
+                <div class="enviar">
+                    <input class="boton" id="ingresar" type="submit" value="Enviar">
+                </div>
+               
+            </div>
+            
+            </form>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>Todos los derechos reservados.Equipo 9 Tecnologias para la web 2CM12</p>
+    </footer>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#ingresar').click(function(){
+                var datos=$('#frmajax').serialize();
+                $.ajax({
+                    type:"POST",
+                    url:"ingresar.php",
+                    data:datos,
+                    success:function(r){
+					if(r==1){
+						window.location.href="index.html";
+					}else{
+						alert("No existe el administrador o la infomación es incorrecta");
+					}
+				}
+                });
+                return false;
+            });
+        });
+    </script>
+</main>
+</body>
+</html>
