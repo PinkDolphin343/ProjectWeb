@@ -166,8 +166,8 @@ h3 {
 
 .iconos {
     display: flex;
-    height: 259px;
-    width: 259px;
+    height: 220px;
+    width: 220px;
     justify-content: space-evenly;
     align-items: center;
     background-color: #0097A7;;
