@@ -42,7 +42,7 @@
 	mysqli_free_result($result);
 	
 
-	for ($j = 1; $j <= 302; $j++) {
+	
 	$sql2="INSERT into usuarios (boleta,nombre,apellidop,apellidom,fechanacim,curp,calle,
 	numero,colonia,alcaldia,cp,tel,email,escuela,entidadf,promedio)
 			values ('$boleta','$nombre','$apellidop','$apellidom','$fecha','$curp','$calle',
@@ -92,7 +92,7 @@
 	mysqli_query($conexion,$sql4);
 	
 	mysqli_free_result($result);	
-}
+
 
 	echo 1;
 
