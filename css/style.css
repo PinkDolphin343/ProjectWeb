@@ -10,7 +10,7 @@ html {
     font-family: 'Noto Sans JP', sans-serif;
     font-size: 62.5%;
     box-sizing: border-box;
-    scroll-snap-type: y proximity;
+   
 }
 *, *:before, *:after {
     box-sizing: inherit;
