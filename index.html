@@ -184,8 +184,8 @@
                                 <option value="CECyT NÚM. 13 RICARDO FLORES MAGON">CECyT NÚM. 13 "RICARDO FLORES MAGÓN"</option>
                                 <option value="CECyT NÚM. 14 LUIS ENRIQUE ERRO SOLER">CECyT NÚM. 14 "LUIS ENRIQUE ERRO SOLER"</option>
                                 <option value="CECyT NÚM. 15 DIODORO ANTUNEZ ECHEGARAY">CECyT NÚM. 15 "DIÓDORO ANTÚNEZ ECHEGARAY"</option>
-                                <option value="CET 1 Walter Cross Buchanan">CET 1 "Walter Cross Buchanan"</option>
-                                <option value="OTRO">OTRO</option>
+                                <option value="1">CET 1 "Walter Cross Buchanan"</option>
+                                <option value="0">OTRO</option>
                             </select>
                         </div>
                         <div class="campo">
@@ -227,10 +227,10 @@
                             </select>
                         </div>
                         <div class="campo">
-                            <label for="nomesc">Nombre de la escuela</label>
+                            <span id="a2" ><label for="nomesc">Nombre de la escuela</label>
 
                             <input type="text" name="nomesc" placeholder="Nombre de la escuela de procedencia"
-                                id="nomesc">
+                                id="nomesc"></span>
                         </div>
                         <div class="campo">
                             <label for="prom">Promedio</label>
@@ -262,5 +262,23 @@
     <script src="js/validar.js"></script>
 
 </body>
+
+<script>
+    let span =document.getElementById("a2");
+    span.style.display = "none";
+    let valor = document.getElementById("esc");
+    valor.addEventListener("change",mostrar);
+        function mostrar(){
+            let valor2 = valor.value;
+            if (valor2 == 1){
+                span.style.display = "none";
+
+            }
+            if(valor2  == 0){
+                span.style.display = "block"
+            }
+        }
+
+</script>
 
 </html>
