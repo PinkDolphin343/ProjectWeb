@@ -1,0 +1,17 @@
+html {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 62.5%;
+    box-sizing: border-box;
+   
+}
+body {
+    font-family: 'Krub', sans-serif;
+    background-image: linear-gradient(to top, #dfe9f3 0%, white 100%); 
+    min-height: 100%;
+    
+}
+h1{
+
+    font-size: x-large;
+    text-align: center;
+}
