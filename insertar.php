@@ -1,8 +1,8 @@
 <?php 
 	$conexion=mysqli_connect('localhost','root','','proyecto');
-	$escfinal='';
+	
 
-	$boleta=$_GET['boleta'];
+	$boleta=$_POST['boleta'];
 	$nombre=$_POST['nombre'];
 	$apellidop=$_POST['apellidop'];
 	$apellidom=$_POST['apellidom'];
@@ -15,19 +15,13 @@
 	$cp=$_POST['cp'];
 	$tel=$_POST['tel'];
 	$mail=$_POST['email'];
-	$escuela=$_POST['esc'];
+	$escfinal=$_POST['esc'];
 	$ef=$_POST['estadoR'];
-	$escuelapre=$_POST['nomesc'];
 	$promedio=$_POST['prom'];
+	$esck=$_POST['nomesc'];
 	$fechac= date_create_from_format('d M, Y H:i:s', '08 Mar, 2020 07:15:00');
 	$hora=date_format($fechac, 'H:i:s');
 	$grupo=1;
-	
-
-	if($escuela == 'OTRO')
-	 $escfinal=$escuelapre;
-	 else
-	 $escfinal=$escuela;
 
 	 
 	$sql= "SELECT * from usuarios where boleta = '$boleta'";
@@ -93,6 +87,9 @@
 	mysqli_free_result($result);	
 
 
-	echo 1;
+	echo'<script type="text/javascript">
+	window.location = "index.php";
+    alert("Tus datos fueron guardados correctamente");
+    </script>';
 
  ?>

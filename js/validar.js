@@ -191,24 +191,6 @@ const expresiones = {
             return; // Detiene la ejecución de esta función
         }
         console.log('Todo bien...');
-        
-        /*
-        var datos2 = $('#frmajax').serialize();
-            alert(datos2);
-            $.ajax({
-                type: "POST",
-                url: "insertar.php",
-                data: datos2,
-                success: function (r) {
-                    if (r == 1) {
-                        alert("Agregado con exito");
-                    } else if (r == 2) {
-                        alert("Esta boleta ya está registrada");
-                    } else {
-                        alert("Fallo el server");
-                    } 
-                }
-            });*/
 
     });
 

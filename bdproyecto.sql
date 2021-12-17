@@ -30,14 +30,6 @@ create table cita(
     constraint foreign key(boleta) references usuarios(boleta)
 	);
 
-create table cita(
-	id_cita int auto_increment,
-	salon int,
-	horario time,
-    boleta varchar(10),
-	primary key(id_cita),
-    constraint foreign key(boleta) references usuarios(boleta)
-	);
 
 create table administrador(
  nombre varchar(10),
@@ -46,6 +38,6 @@ create table administrador(
 );
 
 insert into administrador values('Rafael','more1015');
-select * from admin;
+select * from administrador;
 select * from usuarios;
 select * from cita;
