@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,6 +16,7 @@
     <link href="css/style.css" rel="stylesheet">
     <link href="css/normalize.css" rel="stylesheet">
     <script src="jquery-3.6.0.min.js"></script>
+    <script src="js/validar.js"></script>
 </head>
 
 <body>
@@ -56,7 +58,7 @@
 
         <div id="contacto" class="contacto">
             <h2>Contacto</h2>
-            <form class="formulario" id="frmajax" action="#" method="POST" onsubmit="return validar();">
+            <form class="formulario" id="frmajax" action="usinfo.php" method="post" onsubmit="return validar();">
                 <fieldset>
 
 
@@ -184,8 +186,8 @@
                                 <option value="CECyT NÚM. 13 RICARDO FLORES MAGON">CECyT NÚM. 13 "RICARDO FLORES MAGÓN"</option>
                                 <option value="CECyT NÚM. 14 LUIS ENRIQUE ERRO SOLER">CECyT NÚM. 14 "LUIS ENRIQUE ERRO SOLER"</option>
                                 <option value="CECyT NÚM. 15 DIODORO ANTUNEZ ECHEGARAY">CECyT NÚM. 15 "DIÓDORO ANTÚNEZ ECHEGARAY"</option>
-                                <option value="1">CET 1 "Walter Cross Buchanan"</option>
-                                <option value="0">OTRO</option>
+                                <option value="CET 1 Walter Cross Buchanan">CET 1 "Walter Cross Buchanan"</option>
+                                <option value="OTRO">OTRO</option>
                             </select>
                         </div>
                         <div class="campo">
@@ -244,7 +246,7 @@
 
 
                     <div class="enviar">
-                        <input  id="btnguardar" class="boton" type="submit" value="Enviar">
+                        <input  id="btnguardar" class="boton" type="submit"  value="Enviar">
                     </div>
                     <div class="enviar">
                         <input class="boton" type="reset" value="Borrar">
@@ -259,9 +261,8 @@
         <p>Todos los derechos reservados.Equipo 9 Tecnologias para la web 2CM12</p>
     </footer>
 
-    <script src="js/validar.js"></script>
-
 </body>
+
 
 <script>
     let span =document.getElementById("a2");
@@ -270,11 +271,11 @@
     valor.addEventListener("change",mostrar);
         function mostrar(){
             let valor2 = valor.value;
-            if (valor2 == 1){
+            if (valor2 != "OTRO"){
                 span.style.display = "none";
 
             }
-            if(valor2  == 0){
+            else{
                 span.style.display = "block"
             }
         }

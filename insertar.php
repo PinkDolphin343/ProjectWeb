@@ -2,7 +2,7 @@
 	$conexion=mysqli_connect('localhost','root','','proyecto');
 	$escfinal='';
 
-	$boleta=$_POST['boleta'];
+	$boleta=$_GET['boleta'];
 	$nombre=$_POST['nombre'];
 	$apellidop=$_POST['apellidop'];
 	$apellidom=$_POST['apellidom'];

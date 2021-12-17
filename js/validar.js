@@ -1,6 +1,6 @@
 function validar (){
 
-    var n1,boletan,app,amm,curp, tele, correo, expresion,boletaxs,curpsx, cpn,coln,callen,callenum,letra,esc;
+    var n1,boletan,app,amm,curp, tele, correo, expresion,boletaxs,curpsx, cpn,coln,callen,callenum,letra,esc,esc2;
    //identidad
    n1 = document.getElementById("nombre").value;
    boletan = document.getElementById("boleta").value;
@@ -21,6 +21,7 @@ function validar (){
     letra =  /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
     //Procedencia
     esc = document.getElementById("nomesc").value;
+    esc2=document.getElementById("esc").value;
     //login
     //usuario = document.getElementById("user").value;
    //password = document.getElementById("pass").value;
@@ -107,10 +108,10 @@ function validar (){
         return false;
     }
 
-
-
     //Procedencia//
-    else if (!letra.test(esc)){
+    else
+    if(esc2=="OTRO"){
+    if (!letra.test(esc)){
         alert("La escuela no es valido");
         return false;
     } 
@@ -118,7 +119,7 @@ function validar (){
         alert("La escuela es muy largo o no existe");
         return false;
     } 
-    //login
+}
     
 
 
@@ -181,14 +182,17 @@ const expresiones = {
     
         const { boleta ,nombre, apellidop, apellidom, fechanac,curp,Calle,nunmcalle,col,alcaldia,cp,tel,email,esc,estadoR,nomesc,prom} = datos;
     
-        if(boleta === '' || nombre === '' || apellidop==='' || apellidom==='' || fechanac==='' || curp==='' || Calle==='' || nunmcalle || col==='' || alcaldia==='' || cp==='' || tel==='' || email==='' || esc==='' || estadoR==='' || nomesc==='' || prom==='' ) {
-            console.log('Al menos un campo esta vacio');
-            mostrarError('Todos los campos son obligatorios');
+        if(boleta === '' || nombre === '' || apellidop==='' || apellidom==='' || fechanac==='' || curp==='' || Calle==='' || nunmcalle || col==='' || alcaldia==='' || cp==='' || tel==='' || email==='' || esc==='' || estadoR==='' || prom==='' ) {
+            
+            alert('Al menos un campo esta vacio');
+            if(esc2=="OTRO" && nomesc ===''){
+                alert('Falta el nombre de la escuela');
+            }
             return; // Detiene la ejecución de esta función
         }
         console.log('Todo bien...');
         
-        
+        /*
         var datos2 = $('#frmajax').serialize();
             alert(datos2);
             $.ajax({
@@ -204,9 +208,8 @@ const expresiones = {
                         alert("Fallo el server");
                     } 
                 }
-            });
+            });*/
 
-            return false;
     });
 
 
