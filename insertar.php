@@ -1,5 +1,6 @@
 <?php 
-	$conexion=mysqli_connect('localhost','root','','proyecto');
+	$conexion = new mysqli('localhost','root','','proyecto');
+    $conexion->set_charset("utf8");
 	
 
 	$boleta=$_POST['boleta'];
@@ -18,7 +19,6 @@
 	$escfinal=$_POST['esc'];
 	$ef=$_POST['estadoR'];
 	$promedio=$_POST['prom'];
-	$esck=$_POST['nomesc'];
 	$fechac= date_create_from_format('d M, Y H:i:s', '08 Mar, 2020 07:15:00');
 	$hora=date_format($fechac, 'H:i:s');
 	$grupo=1;
@@ -29,7 +29,10 @@
 	$fila = mysqli_fetch_assoc($result);
 
 	if($fila['boleta'] != NULL){
-		echo 2;
+		echo'<script type="text/javascript">
+	window.location = "index.php";
+    alert("Esta boleta ya está registrada");
+    </script>';
 	}
 
 	mysqli_free_result($result);
@@ -87,9 +90,14 @@
 	mysqli_free_result($result);	
 
 
-	echo'<script type="text/javascript">
-	window.location = "index.php";
-    alert("Tus datos fueron guardados correctamente");
-    </script>';
+	echo"
+	<form id='frm' method='post' target='print_popup' action='Generarpdf.php' onsubmit='window.open('about:blank');'>
+	<input type='text' name='boleta' value=$boleta style='visibility:hidden'>
+	</form>
+	<script type='text/javascript'>
+	alert('Tus datos fueron guardados correctamente');
+	document.getElementById('frm').submit();
+	window.location = 'index.php';
+    </script>";
 
  ?>

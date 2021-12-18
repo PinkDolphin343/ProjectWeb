@@ -1,4 +1,5 @@
 <?php
+    $conexion=mysqli_connect('localhost','root','','proyecto');
     $escfinal='';
     $boleta=$_POST['boleta'];
 	$nombre=$_POST['nombre'];
@@ -22,6 +23,17 @@
 	 $escfinal=$escuelapre;
 	 else
 	 $escfinal=$escuela;
+
+    $sql= "SELECT * from usuarios where boleta = '$boleta'";
+	$result = mysqli_query($conexion, $sql);
+	$fila = mysqli_fetch_assoc($result);
+
+	if($fila['boleta'] != NULL){
+		echo'<script type="text/javascript">
+    alert("Esta boleta ya está registrada");
+    window.history.back();
+    </script>';
+	}
 ?>
 
 <html>
@@ -135,21 +147,12 @@
     <div class="campo">
      <label>promedio:</label>
      <input type='text'  value='<?php echo $promedio; ?>'disabled><br>
-
-
-    <div class="campo">
-     <input  id="btnguardar" class="boton" type="submit"  value="Aceptar">
-    <input type="button" value="Modificar" class="boton" onClick="history.go(-1);">
     </div>
 
-    </div>
+    <form id="frmajax" action="insertar.php" onsubmit="enviar()" method="post">
 
-    </div>
-        
-        <form id="frmajax" action="insertar.php" onsubmit="enviar()" method="post">
-
-        <input id='boleta' type='text' name='boleta' value='<?php echo $boleta; ?>' style="visibility:hidden">
-    <input id='nombre' type='text' name='nombre' value='<?php echo $nombre; ?>' style="visibility:hidden">
+     <input id='boleta' type='text' name='boleta' value='<?php echo $boleta; ?>' style="visibility:hidden">
+     <input id='nombre' type='text' name='nombre' value='<?php echo $nombre; ?>' style="visibility:hidden">
      <input type='text' name='apellidop' value='<?php echo $apellidop; ?>' style="visibility:hidden">
      <input type='text' name='apellidom' value='<?php echo $apellidom; ?>' style="visibility:hidden">
      <input type='text' name='fechanac' value='<?php echo $fecha; ?>' style="visibility:hidden">
@@ -164,10 +167,16 @@
      <input type='text' name='esc' value='<?php echo $escfinal; ?>' style="visibility:hidden">
      <input type='text' name='estadoR' value='<?php echo $ef; ?>' style="visibility:hidden">
      <input type='text' name='prom' value='<?php echo $promedio; ?>' style="visibility:hidden">
+     <div class="campo">
+     <input  id="btnguardar" class="boton" type="submit"  value="Aceptar">
+    <input type="button" value="Modificar" class="boton" onClick="history.go(-1);">
+    </div>
      
-    
-  
 </form>
+
+    </div>
+        
+        
     </body>
 </html>
 

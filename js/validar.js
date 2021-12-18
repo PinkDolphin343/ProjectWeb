@@ -21,7 +21,7 @@ function validar (){
     letra =  /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
     //Procedencia
     esc = document.getElementById("nomesc").value;
-    esc2=document.getElementById("esc").value;
+    esc2 =document.getElementById("esc").value;
     //login
     //usuario = document.getElementById("user").value;
    //password = document.getElementById("pass").value;
@@ -185,7 +185,7 @@ const expresiones = {
         if(boleta === '' || nombre === '' || apellidop==='' || apellidom==='' || fechanac==='' || curp==='' || Calle==='' || nunmcalle || col==='' || alcaldia==='' || cp==='' || tel==='' || email==='' || esc==='' || estadoR==='' || prom==='' ) {
             
             alert('Al menos un campo esta vacio');
-            if(esc2=="OTRO" && nomesc ===''){
+            if(esc2 ==="OTRO" && nomesc ===''){
                 alert('Falta el nombre de la escuela');
             }
             return; // Detiene la ejecución de esta función
