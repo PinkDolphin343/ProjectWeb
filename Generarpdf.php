@@ -1,7 +1,8 @@
-
 <?php
-include("fpdf182/fpdf.php");
 $boleta=$_POST['boleta'];
+include("fpdf182/fpdf.php");
+require("PHPMailer/src/PHPMailer.php");
+require("PHPMailer/src/SMTP.php");
 $datos=["boleta","nombre","apellidop","apellidom","fechanacim","curp","calle",
 "numero","colonia","alcaldia","cp","tel","email","escuela","entidadf","promedio"];
 $datosc=["salon","horario"];
@@ -56,13 +57,34 @@ class PDF extends FPDF
 
     $sql= "SELECT * from cita where boleta = '$boleta'";
 	$result = mysqli_query($conexion, $sql);
-    $fila = mysqli_fetch_assoc($result);
+    $fila2 = mysqli_fetch_assoc($result);
+
     $pdf->SetFont('Arial','',10);
     for($i=0;$i<=1;$i++){
-        $dato=$fila[$datosc[$i]];
+        $dato=$fila2[$datosc[$i]];
         $pdf->Cell(0,10,utf8_decode($datosc2[$i]).": ".utf8_decode($dato),0,1);
     }
     $pdf->Output();
-    mysql_free_result($result);
+    $doc = $pdf->Output("","S");
 
+    $email = $fila['email'];
+
+    $mail = new PHPMailer\PHPMailer\PHPMailer();
+    $mail->IsSMTP(); // enable SMTP
+
+    $mail->SMTPDebug = 1; // debugging: 1 = errors and messages, 2 = messages only
+    $mail->SMTPAuth = true; // authentication enabled
+    $mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
+    $mail->Host = "smtp.gmail.com";
+    $mail->Port = 465; // or 587
+    $mail->IsHTML(true);
+    $mail->Username = "comprobantenoreply@gmail.com";
+    $mail->Password = "rm1116#1";
+    $mail->SetFrom("comprobantenoreply@gmail.com");
+    $mail->AddReplyTo("comprobantenoreply@gmail.com");
+    $mail->Subject = 'Comprobante de registro';
+    $mail->Body = 'Se adjunta el registro en pdf';
+    $mail->AddAddress($email);
+    $mail->AddStringAttachment($doc, 'Comprobante.pdf', 'base64', 'application/pdf');
+    $mail->Send();
 ?>
