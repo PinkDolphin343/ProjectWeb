@@ -47,7 +47,7 @@
                     <div class="campo w-80">
                         
 
-                        <input type="text" name="usuario" placeholder="Ingrese su usuario" required id="user">
+                        <input type="text" name="usuario" placeholder="Usuario" required id="user">
                     </div>
                     <div class="campo w-80">
                         
@@ -66,8 +66,6 @@
                 </div>
                
             </div>
-            <p>¿Eres Alumno y aun no te has registrado ?</p>
-            <a href="index.php">Registrarse</a>
             </form>
         </div>
     </div>
@@ -82,11 +80,12 @@
                 var datos=$('#frmajax').serialize();
                 $.ajax({
                     type:"POST",
-                    url:"ingresar.php",
+                    url:"ingresaradm.php",
                     data:datos,
                     success:function(r){
 					if(r==1){
-						window.location.href="index.html";
+                        //Aqui va a abrir la pagina con las opciones del CRUD
+						window.location.href="loginadm.html";
 					}else{
 						alert("No existe el administrador o la infomación es incorrecta");
 					}

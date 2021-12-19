@@ -1,5 +1,6 @@
 <?php
 $boleta=$_POST['boleta'];
+$registro=$_POST['registro'];
 include("fpdf182/fpdf.php");
 require("PHPMailer/src/PHPMailer.php");
 require("PHPMailer/src/SMTP.php");
@@ -67,6 +68,7 @@ class PDF extends FPDF
     $pdf->Output();
     $doc = $pdf->Output("","S");
 
+    if($registro == 1){
     $email = $fila['email'];
 
     $mail = new PHPMailer\PHPMailer\PHPMailer();
@@ -87,4 +89,5 @@ class PDF extends FPDF
     $mail->AddAddress($email);
     $mail->AddStringAttachment($doc, 'Comprobante.pdf', 'base64', 'application/pdf');
     $mail->Send();
+    }
 ?>

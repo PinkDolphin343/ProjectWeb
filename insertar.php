@@ -22,6 +22,7 @@
 	$fechac= date_create_from_format('d M, Y H:i:s', '08 Mar, 2020 07:15:00');
 	$hora=date_format($fechac, 'H:i:s');
 	$grupo=1;
+	$registro = 1;
 
 	 
 	$sql= "SELECT * from usuarios where boleta = '$boleta'";
@@ -93,11 +94,12 @@
 	echo"
 	<form id='frm' method='post' target='print_popup' action='Generarpdf.php' onsubmit='window.open('about:blank');'>
 	<input type='text' name='boleta' value=$boleta style='visibility:hidden'>
+	<input type='text' name='registro' value=$registro style='visibility:hidden'>
 	</form>
 	<script type='text/javascript'>
 	alert('Tus datos fueron guardados correctamente');
 	document.getElementById('frm').submit();
-	window.location = 'index.php';
+	window.location = 'Registro.php';
     </script>";
 
  ?>
