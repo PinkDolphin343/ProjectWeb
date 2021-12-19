@@ -27,10 +27,10 @@
 
     <div class=" nav-bg">
         <nav class="navegacion contenedor">
-            <a href="index.php">Inicio</a>
+            <a href="index.html">Inicio</a>
             <a href="us.html">Nosotros</a>
             <a href="#">Ayuda</a>
-            <a href="login.html">Login</a>
+            <a href="TipoLogin.html">Login</a>
         </nav>
     </div>
 
