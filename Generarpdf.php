@@ -16,12 +16,12 @@ class PDF extends FPDF
     // Cabecera de página
     function Header()
     {
-        $this->Image('img/logo_escom.png',10,8,45);
+        $this->Image('img/encabezado.fw.png',25,8,180);
         $this->SetFont("Arial","",25);
         $this->SetY(25);
         $this->SetX(65);
         $this->Cell(10,10,utf8_decode("Información personal"));
-        $this->Image('img/ipn_logo.png',165,1,45);
+        $this->Image('img/ipn_logo.png',5,8,25);
         $this->Ln(20);
     }
 
