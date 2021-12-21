@@ -29,7 +29,6 @@
         <nav class="navegacion contenedor">
             <a href="index.html">Inicio</a>
             <a href="us.html">Nosotros</a>
-            <a href="#">Ayuda</a>
             <a href="TipoLogin.html">Login</a>
         </nav>
     </div>
@@ -40,24 +39,16 @@
 
         <div id="contacto" class="contacto">
             <h2 class="ss">INICIA SESION</h2>
-            <form class="formulario" id="frmajax" action="#" method="POST">
+            <form class="formulario" id="frmajax" action="crud.php" method="post">
                 
            
                 
                     <div class="campo w-80">
-                        
-
-                        <input type="text" name="usuario" placeholder="Usuario" required id="user">
+                        <input type="text" name="admin" placeholder="Usuario" required id="user">
                     </div>
                     <div class="campo w-80">
-                        
-
                         <input type="text" name="pass" placeholder="Contraseña" required id="pass">
                     </div>
-
-            
-             
-            
              <div class="final">
 
 
@@ -84,8 +75,7 @@
                     data:datos,
                     success:function(r){
 					if(r==1){
-                        //Aqui va a abrir la pagina con las opciones del CRUD
-						window.location.href="loginadm.html";
+                        document.getElementById('frmajax').submit();
 					}else{
 						alert("No existe el administrador o la infomación es incorrecta");
 					}

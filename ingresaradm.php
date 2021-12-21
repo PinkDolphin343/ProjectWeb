@@ -2,7 +2,7 @@
 
 	$conexion=mysqli_connect('localhost','root','','proyecto');
 
-    $nombre=$_POST['usuario'];
+    $nombre=$_POST['admin'];
 	$contra=$_POST['pass'];	
 	 
 	$sql= "SELECT * from administrador where nombre = '$nombre'";
